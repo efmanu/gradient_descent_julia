@@ -1,23 +1,23 @@
-#Simple JULIA implementation of gradient descent algorithm
+# Simple JULIA implementation of gradient descent algorithm
 
-##use packages
+### use packages
 ```julia
 using Calculus
 using StatsPlots
 ```
-##define function for parabola
+### define function for parabola
 ```julia
 f(x) = (x.+5.0).^2
 ```
-##plot function
-##generate 1000 values between -5 to 5 
+### plot function
+### generate 1000 values between -5 to 5 
 ```julia
 x = range(-25.0,15.0,length=1000)
 
 plot(x, f(x))
 ```
 
-##find the derrivative of the function
+### find the derrivative of the function
 ```julia
 df = derivative(f)
 
@@ -46,7 +46,7 @@ function gd_step(x_new, x_prev, stop_value, η)
    return 0
 end
 ```
-#initialize parameters
+### initialize parameters
 ```julia
 global x_trace = zeros(0)
 x_new = 20.0
@@ -55,14 +55,14 @@ stop_value = 0.005
 η = 0.01
 ```
 
-#run gradient descent algorithm
+### run gradient descent algorithm
 ```julia
 gd_step(x_new, x_prev, stop_value, η)
 
 println("The minimum value of x is $(x_trace[end])")
 println("The minimum value of x identified in  $(length(x_trace)) steps")
 ```
-#plot x and correspnding function values
+### plot x and correspnding function values
 ```julia
 y_out = f(x_trace)
 plot(x_trace, y_out)
